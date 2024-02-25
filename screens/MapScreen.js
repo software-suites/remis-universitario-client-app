@@ -1,4 +1,3 @@
-import React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import tw from 'tailwind-react-native-classnames'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'

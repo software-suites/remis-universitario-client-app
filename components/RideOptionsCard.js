@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import tw from 'tailwind-react-native-classnames'
 import { Icon, Image } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'

@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import React from 'react'
 import tw from 'tailwind-react-native-classnames'
 
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'

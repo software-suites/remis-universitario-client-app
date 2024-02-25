@@ -1,5 +1,4 @@
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
 import tw from 'tailwind-react-native-classnames'
 
 import NavOptions from '../components/NavOptions'
@@ -10,7 +9,6 @@ import { GOOGLE_MAPS_API_KEY } from '@env'
 
 import { useDispatch } from 'react-redux'
 import { setOrigin, setDestination } from '../slices/navSlice'
-import { Input } from 'react-native-elements'
 
 const HomeScreen = () => {
   const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import MapView, { Marker } from 'react-native-maps'
 import tw from 'tailwind-react-native-classnames'
 import { useDispatch, useSelector } from 'react-redux'
