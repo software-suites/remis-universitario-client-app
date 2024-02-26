@@ -38,8 +38,7 @@ const NavigateCard = () => {
                 fontSize: 18
               },
               textInputContainer: {
-                paddingHorizontal: 20,
-                paddingBottom: 0
+                paddingHorizontal: 20
               }
             }}
             nearbyPlacesAPI="GooglePlacesSearch"
