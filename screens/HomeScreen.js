@@ -37,7 +37,7 @@ const HomeScreen = () => {
           nearbyPlacesAPI="GooglePlacesSearch"
           debounce={500}
           enablePoweredByContainer={false}
-          minLength={4}
+          minLength={2}
           query={{
             key: GOOGLE_MAPS_API_KEY,
             language: 'es',

@@ -41,10 +41,11 @@ const NavigateCard = () => {
                 paddingHorizontal: 20
               }
             }}
+            autoFocus={false}
             nearbyPlacesAPI="GooglePlacesSearch"
             debounce={500}
             enablePoweredByContainer={false}
-            minLength={5}
+            minLength={2}
             query={{
               key: GOOGLE_MAPS_API_KEY,
               language: 'es',
