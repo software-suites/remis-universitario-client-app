@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import tw from 'tailwind-react-native-classnames'
+import tw from 'twrnc'
 
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 
@@ -14,11 +14,14 @@ import { setDestination } from '../slices/navSlice'
 import { useDispatch } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import NavFavorites from './NavFavorites'
-import { Icon, Input } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
+import { useRef } from 'react'
 
 const NavigateCard = () => {
   const dispatch = useDispatch()
   const navigation = useNavigation()
+
+  const placesRef = useRef(null)
 
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
@@ -26,6 +29,7 @@ const NavigateCard = () => {
       <View style={tw`border-t border-gray-200 flex-shrink`}>
         <View>
           <GooglePlacesAutocomplete
+            ref={placesRef}
             placeholder="A donde vas?"
             styles={{
               container: {
@@ -63,7 +67,18 @@ const NavigateCard = () => {
             }}
           />
         </View>
-        <NavFavorites />
+        <NavFavorites
+          onRowPress={({ location, description }) => {
+            dispatch(
+              setDestination({
+                location,
+                description
+              })
+            )
+
+            placesRef?.current.setAddressText(description)
+          }}
+        />
       </View>
       <View
         style={tw`flex-row bg-white justify-evenly py-2 mt-auto border-t border-gray-100`}

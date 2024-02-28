@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import MapView, { Marker } from 'react-native-maps'
-import tw from 'tailwind-react-native-classnames'
+import tw from 'twrnc'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   selectDestination,
@@ -56,16 +56,16 @@ const Map = () => {
         longitudeDelta: 0.005
       }}
     >
-      {origin && destination && (
+      {origin && destination ? (
         <MapViewDirections
           origin={origin.description}
           destination={destination.description}
           apikey={GOOGLE_MAPS_API_KEY}
           strokeWidth={3}
-          strokeColor="red"
+          strokeColor="blue"
         />
-      )}
-      {origin?.location && (
+      ) : null}
+      {origin?.location ? (
         <Marker
           coordinate={{
             latitude: origin.location.lat,
@@ -75,8 +75,8 @@ const Map = () => {
           description={origin.description}
           identifier="origin"
         />
-      )}
-      {destination?.location && (
+      ) : null}
+      {destination?.location ? (
         <Marker
           coordinate={{
             latitude: destination.location.lat,
@@ -86,7 +86,7 @@ const Map = () => {
           description={destination.description}
           identifier="destination"
         />
-      )}
+      ) : null}
     </MapView>
   )
 }

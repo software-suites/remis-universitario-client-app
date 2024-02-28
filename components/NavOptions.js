@@ -1,5 +1,5 @@
 import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native'
-import tw from 'tailwind-react-native-classnames'
+import tw from 'twrnc'
 import { Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
@@ -28,7 +28,7 @@ const NavOptions = () => {
           onPress={() => navigation.navigate(item.screen)}
           disabled={!origin}
         >
-          <View style={tw`${!origin && 'opacity-20'}`}>
+          <View style={tw`${!origin ? 'opacity-20' : ''}`}>
             <Image
               style={{ width: 120, height: 120, resizeMode: 'contain' }}
               source={{ uri: item.image }}

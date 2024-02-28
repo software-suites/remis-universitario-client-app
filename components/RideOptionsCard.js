@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native'
 import { useState } from 'react'
-import tw from 'tailwind-react-native-classnames'
+import tw from 'twrnc'
 import { Icon, Image } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
@@ -60,7 +60,7 @@ const RideOptionsCard = () => {
         renderItem={({ item: { id, title, multiplier, image }, item }) => (
           <TouchableOpacity
             style={tw`flex-row justify-between items-center px-10 ${
-              id === selected?.id && 'bg-gray-200'
+              id === selected?.id ? 'bg-gray-200' : null
             }`}
             onPress={() => setSelected(item)}
           >
@@ -93,7 +93,7 @@ const RideOptionsCard = () => {
       <View style={tw`mt-auto border-t border-gray-200`}>
         <TouchableOpacity
           style={tw`bg-red-800 py-3 m-3 rounded-full ${
-            !selected && 'bg-gray-300'
+            !selected ? 'bg-gray-300' : null
           }`}
           disabled={!selected}
         >

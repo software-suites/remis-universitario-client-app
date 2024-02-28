@@ -1,5 +1,5 @@
-import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import tw from 'tailwind-react-native-classnames'
+import { Image, SafeAreaView, View } from 'react-native'
+import tw from 'twrnc'
 
 import NavOptions from '../components/NavOptions'
 import NavFavorites from '../components/NavFavorites'
@@ -10,8 +10,13 @@ import { GOOGLE_MAPS_API_KEY } from '@env'
 import { useDispatch } from 'react-redux'
 import { setOrigin, setDestination } from '../slices/navSlice'
 
+import { useRef } from 'react'
+
 const HomeScreen = () => {
   const dispatch = useDispatch()
+
+  const placesRef = useRef(null)
+
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
       <View style={tw`p-5`}>
@@ -27,6 +32,7 @@ const HomeScreen = () => {
         />
 
         <GooglePlacesAutocomplete
+          ref={placesRef}
           placeholder="Desde donde?"
           styles={{
             container: {
@@ -55,12 +61,24 @@ const HomeScreen = () => {
           }}
         />
         <NavOptions />
-        <NavFavorites />
+
+        <NavFavorites
+          onRowPress={({ location, description }) => {
+            dispatch(setDestination(null))
+
+            dispatch(
+              setOrigin({
+                location,
+                description
+              })
+            )
+
+            placesRef?.current.setAddressText(description)
+          }}
+        />
       </View>
     </SafeAreaView>
   )
 }
 
 export default HomeScreen
-
-const styles = StyleSheet.create({})
