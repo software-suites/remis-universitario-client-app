@@ -1,5 +1,4 @@
 import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native'
-import React from 'react'
 import tw from 'tailwind-react-native-classnames'
 import { Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native'

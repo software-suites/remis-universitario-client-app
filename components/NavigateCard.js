@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import React from 'react'
 import tw from 'tailwind-react-native-classnames'
 
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
@@ -39,14 +38,14 @@ const NavigateCard = () => {
                 fontSize: 18
               },
               textInputContainer: {
-                paddingHorizontal: 20,
-                paddingBottom: 0
+                paddingHorizontal: 20
               }
             }}
+            autoFocus={false}
             nearbyPlacesAPI="GooglePlacesSearch"
             debounce={500}
             enablePoweredByContainer={false}
-            minLength={5}
+            minLength={2}
             query={{
               key: GOOGLE_MAPS_API_KEY,
               language: 'es',
