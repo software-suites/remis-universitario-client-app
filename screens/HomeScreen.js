@@ -12,6 +12,8 @@ import { setOrigin, setDestination } from '../slices/navSlice'
 
 import { useRef } from 'react'
 
+const logo = require('../assets/logo.png')
+
 const HomeScreen = () => {
   const dispatch = useDispatch()
 
@@ -24,11 +26,9 @@ const HomeScreen = () => {
           style={{
             width: 100,
             height: 100,
-            resizeMode: 'contain'
+            resizeMode: 'cover'
           }}
-          source={{
-            uri: 'https://media.istockphoto.com/id/1049076702/es/foto/ruta-66-calle-principal-de-am%C3%A9rica-logo-con-alas-estilo-retro.jpg?s=2048x2048&w=is&k=20&c=UTjYlQ1OdsNUUVNcR1JSl3UVwQT3EqlHoaB1aaIKPyQ='
-          }}
+          source={logo}
         />
 
         <GooglePlacesAutocomplete

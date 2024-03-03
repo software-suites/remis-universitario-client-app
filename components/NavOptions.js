@@ -24,7 +24,7 @@ const NavOptions = () => {
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <TouchableOpacity
-          style={tw`p-4 bg-purple-100 m-2`}
+          style={tw`p-4 m-2 ${!origin ? '' : 'bg-blue-100'}`}
           onPress={() => navigation.navigate(item.screen)}
           disabled={!origin}
         >
@@ -35,7 +35,7 @@ const NavOptions = () => {
             />
             <Text style={tw`m-2 text-lg font-semibold`}>{item.title}</Text>
             <Icon
-              style={tw`p-2 bg-blue-900 rounded-full w-10 mt-4`}
+              style={tw`p-2 bg-blue-700 rounded-full w-10 mt-4`}
               name="arrowright"
               color="white"
               type="antdesign"

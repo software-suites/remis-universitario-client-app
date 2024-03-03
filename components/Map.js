@@ -69,7 +69,8 @@ const Map = () => {
         <Marker
           coordinate={{
             latitude: origin.location.lat,
-            longitude: origin.location.lng
+            longitude: origin.location.lng,
+            color: 'blue'
           }}
           title="Desde"
           description={origin.description}
